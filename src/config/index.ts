@@ -1,6 +1,6 @@
-import * as vscode from 'vscode'
+import * as vscode from 'vscode';
 
 export const getAPIUserGender = () => {
-  const gender = vscode.workspace.getConfiguration('userAPI').get('gender', 'male');
-  return gender
-}
+  const gender = vscode.workspace.getConfiguration('webview').get('userApiGender', 'male');
+  return gender;
+};

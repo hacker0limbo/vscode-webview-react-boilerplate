@@ -22,6 +22,15 @@ export class ViewLoader {
     // render webview
     this.renderWebview();
 
+    // listen messages from webview
+    this.panel.webview.onDidReceiveMessage(
+      message => {
+        console.log('msg', message);
+      },
+      null,
+      this.disposables
+    );
+
     this.panel.onDidDispose(
       () => {
         this.dispose();
@@ -40,7 +49,9 @@ export class ViewLoader {
 
   static showWebview(context: vscode.ExtensionContext) {
     const cls = this;
-    const column = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
+    const column = vscode.window.activeTextEditor
+      ? vscode.window.activeTextEditor.viewColumn
+      : undefined;
     if (cls.currentPanel) {
       cls.currentPanel.reveal(column);
     } else {
