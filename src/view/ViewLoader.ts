@@ -30,7 +30,7 @@ export class ViewLoader {
           vscode.commands.executeCommand('workbench.action.webview.reloadWebviewAction');
         } else if (message.type === 'COMMON') {
           const text = (message as CommonMessage).payload;
-          vscode.window.showInformationMessage(`Recieved message from Webview: ${text}`);
+          vscode.window.showInformationMessage(`Received message from Webview: ${text}`);
         }
       },
       null,

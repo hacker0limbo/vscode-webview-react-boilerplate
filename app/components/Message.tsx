@@ -9,7 +9,7 @@ export const Message: React.FC<RouteConfigComponentProps> = ({ routes }) => {
       <h1>Message</h1>
       <ul>
         <li>
-          <Link to="/message/recieved">Recieved Messages</Link>
+          <Link to="/message/received">Received Messages</Link>
         </li>
         <li>
           <Link to="/message/send">Send Message</Link>

@@ -36,7 +36,7 @@ export const App = () => {
 
   return (
     <Router
-      initialEntries={['/', '/about', '/message', '/message/recieved', '/message/send']}
+      initialEntries={['/', '/about', '/message', '/message/received', '/message/send']}
     >
       <ul className="navbar">
         <li>

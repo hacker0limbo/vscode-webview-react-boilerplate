@@ -2,7 +2,7 @@ import React from 'react';
 import { Home } from '../components/Home';
 import { About } from '../components/About';
 import { Message } from '../components/Message';
-import { RevievedMessages } from '../components/RecievedMessages';
+import { ReceivedMessages } from '../components/ReceivedMessages';
 import { SendMessage } from '../components/SendMessage';
 
 export type RouteConfigComponentProps = Pick<RouteConfig, 'routes'>;
@@ -29,8 +29,8 @@ export const routes: RouteConfig[] = [
     component: Message,
     routes: [
       {
-        path: '/message/recieved',
-        component: RevievedMessages,
+        path: '/message/received',
+        component: ReceivedMessages,
       },
       {
         path: '/message/send',
