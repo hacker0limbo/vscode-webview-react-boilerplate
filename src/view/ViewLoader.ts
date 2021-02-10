@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import { getAPIUserGender } from '../config';
+import { Message, CommonMessage } from './messages/messageTypes';
 
 export class ViewLoader {
   public static currentPanel?: vscode.WebviewPanel;
@@ -24,8 +25,13 @@ export class ViewLoader {
 
     // listen messages from webview
     this.panel.webview.onDidReceiveMessage(
-      message => {
-        console.log('msg', message);
+      (message: Message) => {
+        if (message.type === 'RELOAD') {
+          vscode.commands.executeCommand('workbench.action.webview.reloadWebviewAction');
+        } else if (message.type === 'COMMON') {
+          const text = (message as CommonMessage).payload;
+          vscode.window.showInformationMessage(`Recieved message from Webview: ${text}`);
+        }
       },
       null,
       this.disposables
@@ -59,7 +65,7 @@ export class ViewLoader {
     }
   }
 
-  static postMessageToWebview(message: any) {
+  static postMessageToWebview<T extends Message = Message>(message: T) {
     // post message from extension to webview
     const cls = this;
     cls.currentPanel?.webview.postMessage(message);

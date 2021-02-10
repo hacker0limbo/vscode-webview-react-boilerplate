@@ -23,13 +23,19 @@
     "commands": [
       {
         "command": "webview.open",
-        "title": "Open Webview"
+        "title": "Open Webview",
+        "category": "Webview React"
+      },
+      {
+        "command": "extension.sendMessage",
+        "title": "Send Message to Webview",
+        "category": "Webview React"
       }
     ],
     "configuration": {
       "title": "Webview React",
       "properties": {
-        "webview.userApiGender": {
+        "webviewReact.userApiGender": {
           "type": "string",
           "default": "male",
           "enum": [

@@ -18,6 +18,7 @@ export const routes: RouteConfig[] = [
   {
     path: '/',
     component: Home,
+    exact: true
   },
   {
     path: '/about',

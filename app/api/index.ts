@@ -1,1 +1,1 @@
-export const apiUrl = `https://randomuser.me/api/${apiUserGender}`;
+export const apiUrl = `https://randomuser.me/api/?gender=${apiUserGender}`;

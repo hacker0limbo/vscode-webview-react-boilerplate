@@ -1,5 +1,7 @@
+type Message = import('../src/view/messages/messageTypes').Message;
+
 type VSCode = {
-  postMessage(message: any): void;
+  postMessage<T extends Message = Message>(message: T): void;
   getState(): any;
   setState(state: any): void;
 };

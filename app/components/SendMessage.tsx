@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CommonMessage } from '../../src/view/messages/messageTypes';
 
 export const SendMessage = () => {
   const [message, setMessage] = useState('');
@@ -8,12 +9,15 @@ export const SendMessage = () => {
   };
 
   const sendMessage = () => {
-    vscode.postMessage(message);
+    vscode.postMessage<CommonMessage>({
+      type: 'COMMON',
+      payload: message,
+    });
   };
 
   return (
     <div>
-      <h3>Send Message to Extension</h3>
+      <p>Send Message to Extension:</p>
       <input value={message} onChange={handleMessageChange} />
       <button onClick={sendMessage}>Send</button>
     </div>

@@ -1,11 +1,17 @@
-import React from 'react';
-import { RouteConfigComponentProps } from '../routes/config';
+import React, { useContext } from 'react';
+import { MessagesContext } from '../context/MessageContext';
 
-export const RevievedMessages: React.FC<RouteConfigComponentProps> = ({ routes }) => {
+export const RevievedMessages = () => {
+  const recievedMessages = useContext(MessagesContext);
+
   return (
     <div>
-      <h3>Recieved Messages from Extension</h3>
-      <ul></ul>
+      <p>Recieved Messages from Extension:</p>
+      <ul>
+        {recievedMessages.map((recievedMessage, i) => (
+          <li key={i}>{recievedMessage}</li>
+        ))}
+      </ul>
     </div>
   );
 };
