@@ -47,10 +47,8 @@ export class ViewLoader {
   }
 
   private renderWebview() {
-    // pass vscode variable to webview context
     const html = this.render();
-    const gender = getAPIUserGender();
-    this.panel.webview.html = html.replace('{#apiUserGender#}', gender);
+    this.panel.webview.html = html;
   }
 
   static showWebview(context: vscode.ExtensionContext) {
@@ -90,6 +88,8 @@ export class ViewLoader {
       vscode.Uri.file(path.join(this.context.extensionPath, 'out', 'app', 'bundle.js'))
     );
 
+    const gender = getAPIUserGender();
+
     return `
       <!DOCTYPE html>
         <html lang="en">
@@ -103,7 +103,10 @@ export class ViewLoader {
           <div id="root"></div>
           <script>
             const vscode = acquireVsCodeApi();
-            const apiUserGender = '{#apiUserGender#}'
+            const apiUserGender = "${gender}"
+          </script>
+          <script>
+            console.log('apiUserGender', apiUserGender)
           </script>
           <script src="${bundleScriptPath}"></script>
         </body>
