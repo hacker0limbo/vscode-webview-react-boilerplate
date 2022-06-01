@@ -24,3 +24,5 @@ Functionalities covered:
 - Communication between Webview and Extension
 - Integrated configuration
 - Mock API Request
+
+You can also run the view in browser for easier debug: `npm run browser`. Note any code using `vscode` will fail. Its recommended to add some mocks to mimic vscode api. You can detect running in browser versus vscode webview using something similar to `const isBrowserDebug = window.self === window.top;`.

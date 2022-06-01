@@ -60,7 +60,8 @@
     "watch:view": "webpack --watch --mode development",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "browser": "webpack serve --mode development"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",
@@ -84,7 +85,8 @@
     "typescript": "^4.1.2",
     "vscode-test": "^1.4.1",
     "webpack": "^5.21.1",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.9.1"
   },
   "dependencies": {
     "react": "^17.0.1",
